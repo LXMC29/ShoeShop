@@ -1,3 +1,4 @@
+using ShoeShop.Application;
 using ShoeShop.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.InfrastructureService(builder.Configuration);
+//builder.Services.ApplicationService();
 
 var app = builder.Build();
 

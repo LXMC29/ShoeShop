@@ -11,16 +11,17 @@ namespace ShoeShop.Application.Features.Shoe.Handlers.Commands
 {
     public class DeleteShoeHendler : IRequestHandler<DeleteShoeRequest>
     {
-        private readonly IShoeRepository _shoeRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteShoeHendler(IShoeRepository shoeRepository)
+        public DeleteShoeHendler(IUnitOfWork unitOfWork)
         {
-            _shoeRepository = shoeRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task Handle(DeleteShoeRequest request, CancellationToken cancellationToken)
         {
-            var shoe = await _shoeRepository.GetByIdAsync(request.Id);
-            await _shoeRepository.DeleteAsync(shoe);
+            var shoe = await _unitOfWork.ShoeRepository.GetByIdAsync(request.Id);
+            await _unitOfWork.ShoeRepository.DeleteAsync(shoe);
+            await _unitOfWork.Save();
         }
     }
 }

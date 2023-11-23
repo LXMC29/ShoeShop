@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ShoeShop.Domain;
+using ShoeShop.Domain.Enums;
 
 namespace ShoeShop.Infrastructure.Configuration
 {
@@ -32,7 +33,18 @@ namespace ShoeShop.Infrastructure.Configuration
             builder.Property(c => c.Price).HasColumnType("decimal(18,2)");
 
             // seeding data
-
+            builder.HasData(
+                    new Shoe
+                    {
+                        Id = new Guid("0E6BF7F0-1A58-4382-92E8-71AC890E441B"),
+                        NameShoe = "CoShoe123",
+                        Price = 1999999,
+                        Description = "Giay xin, chay ngay di",
+                        ShoeStatus = ShoeStatus.Active,
+                        CreatedAt = DateTime.Now,
+                        CreatedBy = "ChienCo"
+                    }
+                );
         }
     }
 }

@@ -4,7 +4,7 @@
 
 # Technologies
 - ASP.NET Core 6
-- Entity framework  6
+- Entity Framework Core 6
 
 ## Install Packages
 - Microsoft.EntityFrameworkCore

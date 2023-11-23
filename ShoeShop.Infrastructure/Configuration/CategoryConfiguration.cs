@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ShoeShop.Domain;
+using ShoeShop.Domain.Enums;
 
 namespace ShoeShop.Infrastructure.Configuration
 {
@@ -18,6 +19,17 @@ namespace ShoeShop.Infrastructure.Configuration
             builder.HasKey(x => x.Id);
 
             builder.Property(c => c.NameCategory).IsRequired();
+
+            builder.HasData(
+                new Category
+                {
+                    Id = new Guid("8E017451-AE52-470C-A666-90F871C47947"),
+                    NameCategory = "The thao",
+                    CategoryStatus = ShoeStatus.Active,
+                    CreatedBy = "ChienCo",
+                    CreatedAt = DateTime.Now
+                }
+            );
         }
     }
 }

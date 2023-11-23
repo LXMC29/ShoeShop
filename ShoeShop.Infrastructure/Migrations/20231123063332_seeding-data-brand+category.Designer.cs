@@ -12,8 +12,8 @@ using ShoeShop.Infrastructure;
 namespace ShoeShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ShoeShopDbContext))]
-    [Migration("20231115154900_ShoeShop")]
-    partial class ShoeShop
+    [Migration("20231123063332_seeding-data-brand+category")]
+    partial class seedingdatabrandcategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,14 +54,14 @@ namespace ShoeShop.Infrastructure.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "7a1a8703-d8fc-465d-a544-a908df2c7292",
+                            ConcurrencyStamp = "4c6c33ce-9dce-4397-a921-c929751b9841",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "e7a2cb39-4a49-4765-9794-544786ee96da",
+                            ConcurrencyStamp = "e5711d38-a1ed-47b4-a9ed-14b3b0184272",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -198,23 +198,31 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameBrand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Brand", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2199d691-f475-425f-b2a4-e8e3b50e8a8a"),
+                            BrandStatus = 0,
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 605, DateTimeKind.Local).AddTicks(5580),
+                            CreatedBy = "ChienCo",
+                            NameBrand = "Nike"
+                        });
                 });
 
             modelBuilder.Entity("ShoeShop.Domain.Category", b =>
@@ -230,23 +238,31 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameCategory")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8e017451-ae52-470c-a666-90f871c47947"),
+                            CategoryStatus = 0,
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 605, DateTimeKind.Local).AddTicks(6098),
+                            CreatedBy = "ChienCo",
+                            NameCategory = "The thao"
+                        });
                 });
 
             modelBuilder.Entity("ShoeShop.Domain.Color", b =>
@@ -262,18 +278,16 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameColor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -291,7 +305,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ImageStatus")
@@ -304,11 +317,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<Guid>("ProductDetailId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -332,7 +344,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerName")
@@ -361,11 +372,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -385,7 +395,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OrderId")
@@ -400,11 +409,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<Guid>("ShoeDetailsId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -430,7 +438,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DiscountPrcent")
@@ -439,11 +446,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<int>("PromotionStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -457,21 +463,19 @@ namespace ShoeShop.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BrandId")
+                    b.Property<Guid?>("BrandId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoryId")
+                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DefaultImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -489,11 +493,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<int>("ShoeStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -503,6 +506,18 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Shoes", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0e6bf7f0-1a58-4382-92e8-71ac890e441b"),
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 618, DateTimeKind.Local).AddTicks(5899),
+                            CreatedBy = "ChienCo",
+                            Description = "Giay xin, chay ngay di",
+                            NameShoe = "CoShoe123",
+                            Price = 1999999m,
+                            ShoeStatus = 0
+                        });
                 });
 
             modelBuilder.Entity("ShoeShop.Domain.ShoeDetails", b =>
@@ -518,7 +533,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -534,11 +548,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<Guid>("SizeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -562,7 +575,6 @@ namespace ShoeShop.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameSize")
@@ -572,11 +584,10 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.Property<int>("SizeStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -661,7 +672,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9ebf2cf7-cf5b-4a63-ba37-c179f98fb251",
+                            ConcurrencyStamp = "19ebcdc1-bcf6-4c8c-9c98-ca05661b48b2",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -669,9 +680,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKZWE59In/02MdgqLRVa6VfxVkejnQhNls5dIYddlRL3bgc/CblYOaH8Jtq090JseA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBD07XGfVhQtixBMGiAqekpKT85iP1VpG9J4LbjhMzWcsTECHzELpPC9dy3twOuqPg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6f7dcedb-79ee-467a-b886-3e696d2e0d88",
+                            SecurityStamp = "138b3682-6b4a-4615-8bd9-e2cea5572deb",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -679,7 +690,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1398e604-013a-4238-866d-3767d0f50082",
+                            ConcurrencyStamp = "d839230f-669d-4442-8690-65407eda810d",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -687,9 +698,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOhLmeAxY4/cJFDT+oFNR4uN41xkd/d7hxfU9sPbZ/8S2I+72oLUQZXvb1jZX06qww==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF5Ej/lr2X/9booG83zLwbgDFoNn9VCV+VJOHVST69WdOytnNutuJrox89R2iyvS0A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "78e76ecb-3d07-4a3c-956b-0b1f65698017",
+                            SecurityStamp = "69147a26-ecba-4ea7-ba3f-d39934095ee9",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });
@@ -791,15 +802,11 @@ namespace ShoeShop.Infrastructure.Migrations
                 {
                     b.HasOne("ShoeShop.Domain.Brand", "Brand")
                         .WithMany("Shoes")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandId");
 
                     b.HasOne("ShoeShop.Domain.Category", "Category")
                         .WithMany("Shoes")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Brand");
 

@@ -26,6 +26,9 @@ namespace ShoeShop.Infrastructure
                 .AddDefaultTokenProviders();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddScoped<IShoeRepository, ShoeRepository>();
             services.AddScoped<IShoeDetailsRepository, ShoeDetailsRepository>();
             services.AddScoped<IBrandRepositoty, BrandRepository>();

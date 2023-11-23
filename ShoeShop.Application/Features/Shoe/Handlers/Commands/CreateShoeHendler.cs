@@ -17,11 +17,13 @@ namespace ShoeShop.Application.Features.Shoe.Handlers.Commands
     {
         private readonly IMapper _mapper;
         private readonly IShoeRepository _shoeRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateShoeHendler(IMapper mapper, IShoeRepository shoeRepository)
+        public CreateShoeHendler(IMapper mapper, IShoeRepository shoeRepository, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _shoeRepository = shoeRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task<BaseDto> Handle(CreateShoeRequest request, CancellationToken cancellationToken)
         {
@@ -30,7 +32,8 @@ namespace ShoeShop.Application.Features.Shoe.Handlers.Commands
             product.CreatedAt = DateTime.Now;
             product.ShoeStatus = ShoeStatus.Active;
 
-            await _shoeRepository.AddAsync(product);
+            await _unitOfWork.ShoeRepository.AddAsync(product);
+            await _unitOfWork.Save();
 
             request.CreateShoe.Id = product.Id;
 

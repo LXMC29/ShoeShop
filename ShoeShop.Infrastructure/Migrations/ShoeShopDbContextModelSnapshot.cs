@@ -52,14 +52,14 @@ namespace ShoeShop.Infrastructure.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "0acf8cdd-679d-493c-beb8-b00817c20be4",
+                            ConcurrencyStamp = "4c6c33ce-9dce-4397-a921-c929751b9841",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "673f0822-123f-4afc-a844-4acb63e1454f",
+                            ConcurrencyStamp = "e5711d38-a1ed-47b4-a9ed-14b3b0184272",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -211,6 +211,16 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brand", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2199d691-f475-425f-b2a4-e8e3b50e8a8a"),
+                            BrandStatus = 0,
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 605, DateTimeKind.Local).AddTicks(5580),
+                            CreatedBy = "ChienCo",
+                            NameBrand = "Nike"
+                        });
                 });
 
             modelBuilder.Entity("ShoeShop.Domain.Category", b =>
@@ -241,6 +251,16 @@ namespace ShoeShop.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8e017451-ae52-470c-a666-90f871c47947"),
+                            CategoryStatus = 0,
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 605, DateTimeKind.Local).AddTicks(6098),
+                            CreatedBy = "ChienCo",
+                            NameCategory = "The thao"
+                        });
                 });
 
             modelBuilder.Entity("ShoeShop.Domain.Color", b =>
@@ -489,7 +509,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("0e6bf7f0-1a58-4382-92e8-71ac890e441b"),
-                            CreatedAt = new DateTime(2023, 11, 21, 13, 44, 49, 723, DateTimeKind.Local).AddTicks(9296),
+                            CreatedAt = new DateTime(2023, 11, 23, 13, 33, 31, 618, DateTimeKind.Local).AddTicks(5899),
                             CreatedBy = "ChienCo",
                             Description = "Giay xin, chay ngay di",
                             NameShoe = "CoShoe123",
@@ -650,7 +670,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1f2f465b-6a5b-43a2-baec-438a6b253a01",
+                            ConcurrencyStamp = "19ebcdc1-bcf6-4c8c-9c98-ca05661b48b2",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -658,9 +678,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELfbaCbqwIWHVOty/h4Ml5yhzodu0GiGUepJv/3g3cdxFoT+9lKjPWnbm65Egg4eeQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBD07XGfVhQtixBMGiAqekpKT85iP1VpG9J4LbjhMzWcsTECHzELpPC9dy3twOuqPg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "90f1a219-eff5-4d29-a3ad-f5f06c104f52",
+                            SecurityStamp = "138b3682-6b4a-4615-8bd9-e2cea5572deb",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -668,7 +688,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "28e60d62-d2e0-48bd-a3eb-14e43b919359",
+                            ConcurrencyStamp = "d839230f-669d-4442-8690-65407eda810d",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -676,9 +696,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELhrFhtiKIRUZkNAg9306I9ScUTVhRMRMCMXtni0vR1NmMcZvKrfhHpG6WY4Fx2S6w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF5Ej/lr2X/9booG83zLwbgDFoNn9VCV+VJOHVST69WdOytnNutuJrox89R2iyvS0A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "366ef1e6-63ea-4252-b6d9-7e2042a782a4",
+                            SecurityStamp = "69147a26-ecba-4ea7-ba3f-d39934095ee9",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });

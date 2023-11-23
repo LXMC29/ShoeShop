@@ -1,13 +1,13 @@
-﻿using ShoeShop.Domain.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace ShoeShop.Application.DTOs.Common
+namespace ShoeShop.Application.Features.Shoe.Requests.Commands
 {
-    public class BaseDto
+    public class DeleteShoeRequest : IRequest
     {
         public Guid Id { get; set; }
     }

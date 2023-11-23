@@ -17,6 +17,6 @@ namespace ShoeShop.Application.Repositories.Generic
         // add list
         Task<bool> AddRangeAsync(IEnumerable<T> entities);
         //update list
-        Task<bool> UpdateRangeAsync(IEnumerable<T> entities);
+        Task UpdateRangeAsync(IEnumerable<T> entities);
     }
 }

@@ -13,6 +13,8 @@ namespace ShoeShop.Application.Profile
         public MappingProfile()
         {
             CreateMap<Shoe, ShoeDto>().ReverseMap();
+            CreateMap<Shoe, CreateShoeDto>().ReverseMap();
+            CreateMap<Shoe, UpdateShoeDto>().ReverseMap();
         }
     }
 }

@@ -8,8 +8,7 @@ using ShoeShop.Application.DTOs.Shoe;
 
 namespace ShoeShop.Application.Features.Shoe.Requests.Queries
 {
-    public class GetProductDetailRequest : IRequest<ShoeDto>
+    public record GetProductDetailRequest(Guid Id) : IRequest<ShoeDto>
     {
-        public Guid Id { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using ShoeShop.Infrastructure;
 namespace ShoeShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ShoeShopDbContext))]
-    [Migration("20231121064450_seeding-data-shoe")]
-    partial class seedingdatashoe
+    [Migration("20231122071931_shoeshop")]
+    partial class shoeshop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,14 +54,14 @@ namespace ShoeShop.Infrastructure.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "0acf8cdd-679d-493c-beb8-b00817c20be4",
+                            ConcurrencyStamp = "44e8ffe0-d2f8-4bb9-b05a-361432717f1f",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "673f0822-123f-4afc-a844-4acb63e1454f",
+                            ConcurrencyStamp = "9d954cec-a40b-426f-b43d-edd5f6355839",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -491,7 +491,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("0e6bf7f0-1a58-4382-92e8-71ac890e441b"),
-                            CreatedAt = new DateTime(2023, 11, 21, 13, 44, 49, 723, DateTimeKind.Local).AddTicks(9296),
+                            CreatedAt = new DateTime(2023, 11, 22, 14, 19, 31, 720, DateTimeKind.Local).AddTicks(7128),
                             CreatedBy = "ChienCo",
                             Description = "Giay xin, chay ngay di",
                             NameShoe = "CoShoe123",
@@ -652,7 +652,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1f2f465b-6a5b-43a2-baec-438a6b253a01",
+                            ConcurrencyStamp = "482dbea6-be6c-4d29-b007-649badebd73e",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -660,9 +660,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELfbaCbqwIWHVOty/h4Ml5yhzodu0GiGUepJv/3g3cdxFoT+9lKjPWnbm65Egg4eeQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBxFfT2VFOvC6u2ykxYrcWHVbz4Y3R8RWk9Oi/wjcbWFBf5/0L0dYH9mFHb8fOyl0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "90f1a219-eff5-4d29-a3ad-f5f06c104f52",
+                            SecurityStamp = "dfb2b106-0ca2-4cd1-a59d-20ae04ca18ef",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -670,7 +670,7 @@ namespace ShoeShop.Infrastructure.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "28e60d62-d2e0-48bd-a3eb-14e43b919359",
+                            ConcurrencyStamp = "f53952ef-6be4-4683-a176-321c5d270e29",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -678,9 +678,9 @@ namespace ShoeShop.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELhrFhtiKIRUZkNAg9306I9ScUTVhRMRMCMXtni0vR1NmMcZvKrfhHpG6WY4Fx2S6w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECkaN5Wf26u24wvIAylqHU931moARQtp/cSC3KS4lF2QJ1DpNac+aV0ZOCPIhtga/g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "366ef1e6-63ea-4252-b6d9-7e2042a782a4",
+                            SecurityStamp = "6bb00609-1c1d-43e9-b8af-abf4d79afc4f",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });

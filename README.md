@@ -14,7 +14,7 @@
 - AutoMapper.Extensions.Microsoft.DI
 - MediatR
 
-# Build a .NET Core API and Blazor UI Application
+# Build a .NET Core API
 - Use **Clean Architecture**
 - Use **Command Query Responsibility Segregation (CQRS)**
 - Implement **Mediatr Pattern**

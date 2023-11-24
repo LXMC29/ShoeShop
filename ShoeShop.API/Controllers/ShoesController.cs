@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoeShop.Application.DTOs.Shoe;
@@ -9,6 +10,7 @@ namespace ShoeShop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator")]
     public class ShoesController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -19,6 +21,7 @@ namespace ShoeShop.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous] // khong dang nhap van lay duoc
         public async Task<IActionResult> GetAllShoe()
         {
             var response = await _mediator.Send(new GetProductListRequest());

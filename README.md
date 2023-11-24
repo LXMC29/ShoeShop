@@ -19,3 +19,4 @@
 - Use **Command Query Responsibility Segregation (CQRS)**
 - Implement **Mediatr Pattern**
 - Implement **Generic Repository + Unit of work**
+- Implement JWT(JSON Web Token)  Authentication
